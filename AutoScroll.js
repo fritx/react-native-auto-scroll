@@ -35,12 +35,17 @@ export default class AutoScroll extends Component {
   }
   handleKeyboardHide () {
     const { scrollY, scrollHeight, contentHeight } = this
+
+    // fix top blank if exsits
     if (scrollY > contentHeight - scrollHeight) {
       this.refs.scroller.scrollTo({ y: 0 })
     }
-    else 
-    if (contentHeight > scrollHeight) {
-      this.refs.scroller.scrollTo({ y: contentHeight - scrollHeight })
+    // fix bottom blank if exsits
+    // else {
+    //   this.scrollToBottom()
+    // }
+    else {
+      this.refs.scroller.scrollTo({ y: scrollY })
     }
   }
 
