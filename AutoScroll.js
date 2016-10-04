@@ -2,7 +2,7 @@
 // UX Interactions kept consistent with Wechat App
 
 import React, { Component } from 'react'
-import { Keyboard, ScrollView } from 'react-native'
+import { Keyboard, Platform, ScrollView } from 'react-native'
 
 export default class AutoScroll extends Component {
   constructor (props, context) {
@@ -37,16 +37,20 @@ export default class AutoScroll extends Component {
   handleKeyboardHide () {
     const { scrollY, scrollHeight, contentHeight } = this
 
-    // fix top blank if exsits
-    if (scrollY > contentHeight - scrollHeight) {
-      this.refs.scroller.scrollTo({ y: 0 })
-    }
-    // fix bottom blank if exsits
-    // else {
-    //   this.scrollToBottom()
-    // }
-    else {
-      this.refs.scroller.scrollTo({ y: scrollY })
+    // fix iOS bouncing scroll effect
+    if (Platform.OS === 'ios') {
+      // fix top blank if exsits
+      // detection also has trouble on Android
+      if (scrollY > contentHeight - scrollHeight) {
+        this.refs.scroller.scrollTo({ y: 0 })
+      }
+      // fix bottom blank if exsits
+      // else {
+      //   this.scrollToBottom()
+      // }
+      else {
+        this.refs.scroller.scrollTo({ y: scrollY })
+      }
     }
   }
 
