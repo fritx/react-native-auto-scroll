@@ -55,7 +55,11 @@ export default class AutoScroll extends Component {
   handleLayout (e) {
     this.scrollHeight = e.nativeEvent.layout.height
   }
+
   handleContentChange (w, h) {
+    // repeated called on Android
+    // should do diff
+    if (h === this.contentHeight) return
     this.contentHeight = h
 
     if (this.scrollHeight == null) {
