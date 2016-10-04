@@ -1,6 +1,6 @@
 {
   "name": "react-native-auto-scroll",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "AutoScroll.js",
   "repository": "git@github.com:fritx/react-native-auto-scroll.git",
   "description": "ScrollView that scrolls down responsively.",

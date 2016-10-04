@@ -2,7 +2,7 @@
 
 > ScrollView that scrolls down responsively.
 
-<img width="375" height="687" src="https://raw.githubusercontent.com/fritx/react-native-auto-scroll/dev/demo.gif">
+<img width="375" src="https://raw.githubusercontent.com/fritx/react-native-auto-scroll/dev/demo.gif">
 
 
 ```jsx
