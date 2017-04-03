@@ -22,12 +22,12 @@ export default class AutoScroll extends Component {
   }
 
   componentDidMount () {
-    Keyboard.addListener('keyboardDidShow', this.handleKeyboardShow)
-    Keyboard.addListener('keyboardDidHide', this.handleKeyboardHide)
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.handleKeyboardShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.handleKeyboardHide);
   }
   componentWillUnmount () {
-    Keyboard.removeListener('keyboardDidShow', this.handleKeyboardShow)
-    Keyboard.removeListener('keyboardDidHide', this.handleKeyboardHide)
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
   }
 
   // todo: handle layout instead of keyboard
